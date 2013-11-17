@@ -48,6 +48,10 @@ set dir=~/.vim/swp
 " On save any: trim trailing whitespace.
 autocmd! BufWrite * mark ' | silent! %s/\s\+$// | norm ''
 
+" Disable bell
+set noerrorbells visualbell t_vb=
+autocmd GUIEnter * set visualbell t_vb=
+
 " No scroll in GUI.
 set guioptions-=L
 
@@ -62,6 +66,15 @@ if has("gui_running")
 else
   colorscheme default
 endif
+
+" Set window size
+if has("gui_running")
+  set lines=40 columns=115
+endif
+
+" Highlight long strings
+highlight OverLength ctermbg=red ctermfg=white guibg=#592929
+match OverLength /\%81v.\+/
 
 " Treat long lines as break lines (useful when moving around in them).
 noremap j gj
@@ -85,5 +98,12 @@ call pathogen#incubate()
 filetype plugin indent on
 
 " NERDTree.
-let g:NERDTreeWinSize=22
+if has("gui_running")
+  " NERDTree buffer width
+  let g:NERDTreeWinSize=30
+  " Auto open NERDTree
+  au VimEnter *  NERDTree
+else
+  let g:NERDTreeWinSize=22
+end
 
