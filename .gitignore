@@ -3,3 +3,7 @@ swp/
 
 # TextEdit
 *~
+
+# Bundle
+/bundle/
+!/bundle/vundle

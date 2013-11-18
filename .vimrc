@@ -92,9 +92,21 @@ inoremap <Down> <C-o>gj
 inoremap <Home> <C-o>g<Home>
 inoremap <End> <C-o>g<End>
 
-" Pathogen.
-call pathogen#incubate()
+" Vundle.
+filetype off
 
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+" Vundle bundles list
+
+Bundle "tpope/vim-rails"
+Bundle "slim-template/vim-slim"
+Bundle "kchmck/vim-coffee-script"
+Bundle "jimenezrick/vimerl"
+Bundle "scrooloose/nerdtree"
+
+" Vundle end
 filetype plugin indent on
 
 " NERDTree.
