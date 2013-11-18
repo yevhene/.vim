@@ -5,5 +5,5 @@ swp/
 *~
 
 # Bundle
-/bundle/
-!/bundle/vundle
+/bundle/*
+!/bundle/vundle/
