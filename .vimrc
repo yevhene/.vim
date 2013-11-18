@@ -67,9 +67,19 @@ else
   colorscheme default
 endif
 
-" Set window size
+" Setup GUI
 if has("gui_running")
+  " Set window size
   set lines=40 columns=115
+
+  " Remove menu bar
+  set guioptions-=m
+
+  " Remove toolbar.
+  set guioptions-=T
+
+  " Remove right-hand scroll bar
+  set guioptions-=r
 endif
 
 " Highlight long strings
