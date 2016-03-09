@@ -1,3 +1,6 @@
+" Improved
+set nocompatible
+
 " Use UTF-8.
 set encoding=utf-8
 
@@ -105,18 +108,21 @@ inoremap <End> <C-o>g<End>
 " Vundle.
 filetype off
 
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+set rtp+=~/.vim/bundle/Vundle.vim/
+call vundle#begin()
+
+Plugin 'VundleVim/Vundle.vim'
 
 " Vundle bundles list
 
-Bundle "tpope/vim-rails"
-Bundle "slim-template/vim-slim"
-Bundle "kchmck/vim-coffee-script"
-Bundle "jimenezrick/vimerl"
-Bundle "scrooloose/nerdtree"
+Plugin 'tpope/vim-rails'
+Plugin 'slim-template/vim-slim'
+Plugin 'kchmck/vim-coffee-script'
+Plugin 'jimenezrick/vimerl'
+Plugin 'scrooloose/nerdtree'
 
 " Vundle end
+call vundle#end()
 filetype plugin indent on
 
 " NERDTree.
