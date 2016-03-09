@@ -1,69 +1,69 @@
 " Improved
 set nocompatible
 
-" Use UTF-8.
+" Use UTF-8
 set encoding=utf-8
 
-" Enable syntax highlighting.
+" Enable syntax highlighting
 syntax on
 
-" Line number.
+" Line number
 set number
 
-"Always show current position.
+"Always show current position
 set ruler
 
-" Highlight search results.
+" Highlight search results
 set hlsearch
 
-" Makes search act like search in modern browsers.
+" Makes search act like search in modern browsers
 set incsearch
 
-" Show matching brackets when text indicator is over them.
+" Show matching brackets when text indicator is over them
 set showmatch
 
-" Use spaces instead of tabs.
+" Use spaces instead of tabs
 set expandtab
 
-" Be smart when using tabs.
+" Be smart when using tabs
 set smarttab
 
-" 1 tab == 2 spaces.
+" 1 tab == 2 spaces
 set shiftwidth=2
 set tabstop=2
 
-" Auto indent.
+" Auto indent
 set ai
 
-" Wrap lines.
+" Wrap lines
 set wrap
 
-" Enable Backspace usage.
+" Enable Backspace usage
 set backspace=indent,eol,start
 
-" Highlight trailing whitespace.
+" Highlight trailing whitespace
 set list
 set listchars=tab:·\ ,trail:· "
 
-" Swap files.
+" Swap files
 set dir=~/.vim/swp
 
-" On save any: trim trailing whitespace.
+" On save any: trim trailing whitespace
 autocmd! BufWrite * mark ' | silent! %s/\s\+$// | norm ''
 
 " Disable bell
 set noerrorbells visualbell t_vb=
 autocmd GUIEnter * set visualbell t_vb=
 
-" No scroll in GUI.
+" No scroll in GUI
 set guioptions-=L
 
-" Copy/Paste shortcuts.
+" Copy/Paste shortcuts
 nmap <C-V> "+gP
 imap <C-V> <ESC><C-V>i
 vmap <C-C> "+y
 
-" Set color scheme that I like.
+" Set color scheme that I like
 if has("gui_running")
   colorscheme codeschool
 else
@@ -78,7 +78,7 @@ if has("gui_running")
   " Remove menu bar
   set guioptions-=m
 
-  " Remove toolbar.
+  " Remove toolbar
   set guioptions-=T
 
   " Remove right-hand scroll bar
@@ -89,7 +89,7 @@ endif
 highlight OverLength ctermbg=red ctermfg=white guibg=#592929
 match OverLength /\%81v.\+/
 
-" Treat long lines as break lines (useful when moving around in them).
+" Treat long lines as break lines (useful when moving around in them)
 noremap j gj
 noremap k gk
 noremap 0 g0
@@ -105,7 +105,7 @@ inoremap <Down> <C-o>gj
 inoremap <Home> <C-o>g<Home>
 inoremap <End> <C-o>g<End>
 
-" Vundle.
+" Vundle
 filetype off
 
 set rtp+=~/.vim/bundle/Vundle.vim/
@@ -120,12 +120,14 @@ Plugin 'slim-template/vim-slim'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'jimenezrick/vimerl'
 Plugin 'scrooloose/nerdtree'
+Plugin 'isRuslan/vim-es6'
+Plugin 'embear/vim-localvimrc'
 
 " Vundle end
 call vundle#end()
 filetype plugin indent on
 
-" NERDTree.
+" NERDTree
 if has("gui_running")
   " NERDTree buffer width
   let g:NERDTreeWinSize=30
@@ -135,3 +137,5 @@ else
   let g:NERDTreeWinSize=22
 end
 
+" Local .vimrc
+let g:localvimrc_ask=0
