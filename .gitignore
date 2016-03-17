@@ -1,5 +1,11 @@
-# Swp
-swp/
+# Temporary files
+/.tmp/*
+!/.tmp/swp/
+!/.tmp/undo/
+/.tmp/swp/*
+/.tmp/undo/*
+!/.tmp/swp/.keep
+!/.tmp/undo/.keep
 
 # TextEdit
 *~
