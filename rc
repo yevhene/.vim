@@ -124,20 +124,27 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
 " Vundle bundles list
+Plugin 'scrooloose/nerdtree'
+Plugin 'embear/vim-localvimrc'
+Plugin 'godlygeek/tabular'
+Plugin 'plasticboy/vim-markdown'
 
+" Rails
 Plugin 'tpope/vim-rails'
 Plugin 'tpope/vim-cucumber'
 Plugin 'slim-template/vim-slim'
 Plugin 'kchmck/vim-coffee-script'
-Plugin 'jimenezrick/vimerl'
-Plugin 'scrooloose/nerdtree'
-Plugin 'isRuslan/vim-es6'
-Plugin 'embear/vim-localvimrc'
-Plugin 'digitaltoad/vim-pug'
+
+" Node
 Plugin 'moll/vim-node'
-Plugin 'godlygeek/tabular'
-Plugin 'plasticboy/vim-markdown'
 Plugin 'wavded/vim-stylus'
+Plugin 'digitaltoad/vim-pug'
+Plugin 'isRuslan/vim-es6'
+
+" Elixir
+Plugin 'jimenezrick/vimerl'
+Plugin 'elixir-lang/vim-elixir'
+Plugin 'avdgaag/vim-phoenix'
 
 " Vundle end
 call vundle#end()
