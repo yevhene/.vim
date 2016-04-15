@@ -1,3 +1,5 @@
+" vim: set syntax=vim:
+
 " Improved
 set nocompatible
 
@@ -124,12 +126,18 @@ Plugin 'VundleVim/Vundle.vim'
 " Vundle bundles list
 
 Plugin 'tpope/vim-rails'
+Plugin 'tpope/vim-cucumber'
 Plugin 'slim-template/vim-slim'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'jimenezrick/vimerl'
 Plugin 'scrooloose/nerdtree'
 Plugin 'isRuslan/vim-es6'
 Plugin 'embear/vim-localvimrc'
+Plugin 'digitaltoad/vim-pug'
+Plugin 'moll/vim-node'
+Plugin 'godlygeek/tabular'
+Plugin 'plasticboy/vim-markdown'
+Plugin 'wavded/vim-stylus'
 
 " Vundle end
 call vundle#end()
@@ -147,3 +155,6 @@ end
 
 " Local .vimrc
 let g:localvimrc_ask=0
+
+" Vim Markdown
+let g:vim_markdown_folding_disabled = 1
