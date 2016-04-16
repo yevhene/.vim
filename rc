@@ -146,6 +146,9 @@ Plugin 'jimenezrick/vimerl'
 Plugin 'elixir-lang/vim-elixir'
 Plugin 'avdgaag/vim-phoenix'
 
+" Prolog
+Plugin 'adimit/prolog.vim'
+
 " Vundle end
 call vundle#end()
 filetype plugin indent on
@@ -165,3 +168,6 @@ let g:localvimrc_ask=0
 
 " Vim Markdown
 let g:vim_markdown_folding_disabled = 1
+
+" Syntax
+au BufReadPost *.es6.erb set syntax=javascript
