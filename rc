@@ -69,7 +69,7 @@ autocmd GUIEnter * set visualbell t_vb=
 set guioptions-=L
 
 " Copy/Paste shortcuts
-nmap <C-V> "+gP
+nmap <C-V> "+p
 imap <C-V> <ESC><C-V>i
 vmap <C-C> "+y
 
@@ -83,7 +83,7 @@ endif
 " Setup GUI
 if has("gui_running")
   " Set window size
-  set lines=40 columns=115
+  set lines=45 columns=120
 
   " Remove menu bar
   set guioptions-=m
@@ -128,6 +128,7 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'embear/vim-localvimrc'
 Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
+Plugin 'vim-gitgutter'
 
 " Rails
 Plugin 'tpope/vim-rails'
@@ -156,7 +157,7 @@ filetype plugin indent on
 " NERDTree
 if has("gui_running")
   " NERDTree buffer width
-  let g:NERDTreeWinSize=30
+  let g:NERDTreeWinSize=35
   " Auto open NERDTree
   au VimEnter *  NERDTree
 else
@@ -168,6 +169,11 @@ let g:localvimrc_ask=0
 
 " Vim Markdown
 let g:vim_markdown_folding_disabled = 1
+
+" Vim GitGutter
+let g:gitgutter_override_sign_column_highlight = 0
+let g:gitgutter_sign_column_always = 1
+hi SignColumn ctermbg=16 guibg=#252c31
 
 " Syntax
 au BufReadPost *.es6.erb set syntax=javascript
