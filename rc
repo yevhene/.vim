@@ -129,6 +129,7 @@ Plugin 'embear/vim-localvimrc'
 Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'vim-gitgutter'
+Plugin 'scrooloose/nerdcommenter'
 
 " Rails
 Plugin 'tpope/vim-rails'
@@ -173,7 +174,7 @@ let g:vim_markdown_folding_disabled = 1
 " Vim GitGutter
 let g:gitgutter_override_sign_column_highlight = 0
 let g:gitgutter_sign_column_always = 1
-hi SignColumn ctermbg=16 guibg=#252c31
+hi SignColumn ctermbg=16 guibg=#2a343a
 
 " Syntax
 au BufReadPost *.es6.erb set syntax=javascript
