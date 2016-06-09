@@ -83,7 +83,7 @@ endif
 " Setup GUI
 if has("gui_running")
   " Set window size
-  set lines=45 columns=120
+  set lines=45 columns=122
 
   " Remove menu bar
   set guioptions-=m
@@ -130,6 +130,7 @@ Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'vim-gitgutter'
 Plugin 'scrooloose/nerdcommenter'
+Plugin 'Xuyuanp/nerdtree-git-plugin'
 
 " Rails
 Plugin 'tpope/vim-rails'
@@ -142,6 +143,7 @@ Plugin 'moll/vim-node'
 Plugin 'wavded/vim-stylus'
 Plugin 'digitaltoad/vim-pug'
 Plugin 'isRuslan/vim-es6'
+Plugin 'leafgarland/typescript-vim'
 
 " Elixir
 Plugin 'jimenezrick/vimerl'
