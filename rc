@@ -83,7 +83,7 @@ endif
 " Setup GUI
 if has("gui_running")
   " Set window size
-  set lines=45 columns=122
+  set lines=54 columns=215
 
   " Remove menu bar
   set guioptions-=m
@@ -97,7 +97,13 @@ endif
 
 " Highlight long strings
 highlight OverLength ctermbg=red ctermfg=white guibg=#592929
-match OverLength /\%81v.\+/
+autocmd VimEnter,WinEnter * match OverLength /\%81v.\+/
+
+if exists('+colorcolumn')
+  set colorcolumn=80
+else
+  au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
+endif
 
 " Treat long lines as break lines (useful when moving around in them)
 noremap j gj
@@ -115,6 +121,14 @@ inoremap <Down> <C-o>gj
 inoremap <Home> <C-o>g<Home>
 inoremap <End> <C-o>g<End>
 
+" Mappings to move lines
+nnoremap <A-j> :m .+1<CR>==
+nnoremap <A-k> :m .-2<CR>==
+inoremap <A-j> <Esc>:m .+1<CR>==gi
+inoremap <A-k> <Esc>:m .-2<CR>==gi
+vnoremap <A-j> :m '>+1<CR>gv=gv
+vnoremap <A-k> :m '<-2<CR>gv=gv
+
 " Vundle
 filetype off
 
@@ -128,7 +142,7 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'embear/vim-localvimrc'
 Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
-Plugin 'vim-gitgutter'
+Plugin 'airblade/vim-gitgutter'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 
@@ -142,8 +156,10 @@ Plugin 'kchmck/vim-coffee-script'
 Plugin 'moll/vim-node'
 Plugin 'wavded/vim-stylus'
 Plugin 'digitaltoad/vim-pug'
-Plugin 'isRuslan/vim-es6'
 Plugin 'leafgarland/typescript-vim'
+Plugin 'nikvdp/ejs-syntax'
+Plugin 'pangloss/vim-javascript'
+Plugin 'mxw/vim-jsx'
 
 " Elixir
 Plugin 'jimenezrick/vimerl'
@@ -153,6 +169,9 @@ Plugin 'avdgaag/vim-phoenix'
 " Prolog
 Plugin 'adimit/prolog.vim'
 
+" Elm
+Plugin 'ElmCast/elm-vim'
+
 " Vundle end
 call vundle#end()
 filetype plugin indent on
@@ -160,7 +179,7 @@ filetype plugin indent on
 " NERDTree
 if has("gui_running")
   " NERDTree buffer width
-  let g:NERDTreeWinSize=35
+  let g:NERDTreeWinSize=41
   " Auto open NERDTree
   au VimEnter *  NERDTree
 else
@@ -180,3 +199,4 @@ hi SignColumn ctermbg=16 guibg=#2a343a
 
 " Syntax
 au BufReadPost *.es6.erb set syntax=javascript
+au BufReadPost *.slimbars set syntax=slim
