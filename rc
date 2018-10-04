@@ -129,44 +129,47 @@ inoremap <A-k> <Esc>:m .-2<CR>==gi
 vnoremap <A-j> :m '>+1<CR>gv=gv
 vnoremap <A-k> :m '<-2<CR>gv=gv
 
-" Vundle
-filetype off
+" VimPlug
 
-set rtp+=~/.vim/bundle/Vundle.vim/
-call vundle#begin()
+" Autoinstall
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
 
-Plugin 'VundleVim/Vundle.vim'
+" Plugins begin
+call plug#begin('~/.vim/plugged')
 
-" Vundle bundles list
-Plugin 'scrooloose/nerdtree'
-Plugin 'plasticboy/vim-markdown'
+" Global
+Plug 'scrooloose/nerdtree'
+Plug 'plasticboy/vim-markdown'
 
 " Git
-Plugin 'airblade/vim-gitgutter'
-Plugin 'Xuyuanp/nerdtree-git-plugin'
+Plug 'airblade/vim-gitgutter'
+Plug 'Xuyuanp/nerdtree-git-plugin'
 
 " Rails
-Plugin 'tpope/vim-rails'
-Plugin 'slim-template/vim-slim'
-Plugin 'kchmck/vim-coffee-script'
-Plugin 'cakebaker/scss-syntax.vim'
+Plug 'tpope/vim-rails'
+Plug 'slim-template/vim-slim'
+Plug 'kchmck/vim-coffee-script'
+Plug 'cakebaker/scss-syntax.vim'
 
 " Node
-Plugin 'moll/vim-node'
-Plugin 'wavded/vim-stylus'
-Plugin 'digitaltoad/vim-pug'
-Plugin 'nikvdp/ejs-syntax'
-Plugin 'pangloss/vim-javascript'
-Plugin 'mxw/vim-jsx'
+Plug 'moll/vim-node'
+Plug 'wavded/vim-stylus'
+Plug 'digitaltoad/vim-pug'
+Plug 'nikvdp/ejs-syntax'
+Plug 'pangloss/vim-javascript'
+Plug 'mxw/vim-jsx'
 
 " Elixir
-Plugin 'jimenezrick/vimerl'
-Plugin 'elixir-lang/vim-elixir'
-Plugin 'avdgaag/vim-phoenix'
+Plug 'jimenezrick/vimerl'
+Plug 'elixir-lang/vim-elixir'
+Plug 'avdgaag/vim-phoenix'
 
-" Vundle end
-call vundle#end()
-filetype plugin indent on
+" Plugins end
+call plug#end()
 
 " NERDTree
 if has("gui_running")
@@ -177,9 +180,6 @@ if has("gui_running")
 else
   let g:NERDTreeWinSize=22
 end
-
-" Local .vimrc
-let g:localvimrc_ask=0
 
 " Vim Markdown
 let g:vim_markdown_folding_disabled = 1

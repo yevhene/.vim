@@ -11,6 +11,6 @@ view
 # TextEdit
 *~
 
-# Bundle
-/bundle/*
-!/bundle/Vundle.vim
+# VimPlug
+/autoload
+/plugged
