@@ -139,24 +139,22 @@ Plugin 'VundleVim/Vundle.vim'
 
 " Vundle bundles list
 Plugin 'scrooloose/nerdtree'
-Plugin 'embear/vim-localvimrc'
-Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
+
+" Git
 Plugin 'airblade/vim-gitgutter'
-Plugin 'scrooloose/nerdcommenter'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 
 " Rails
 Plugin 'tpope/vim-rails'
-Plugin 'tpope/vim-cucumber'
 Plugin 'slim-template/vim-slim'
 Plugin 'kchmck/vim-coffee-script'
+Plugin 'cakebaker/scss-syntax.vim'
 
 " Node
 Plugin 'moll/vim-node'
 Plugin 'wavded/vim-stylus'
 Plugin 'digitaltoad/vim-pug'
-Plugin 'leafgarland/typescript-vim'
 Plugin 'nikvdp/ejs-syntax'
 Plugin 'pangloss/vim-javascript'
 Plugin 'mxw/vim-jsx'
@@ -165,12 +163,6 @@ Plugin 'mxw/vim-jsx'
 Plugin 'jimenezrick/vimerl'
 Plugin 'elixir-lang/vim-elixir'
 Plugin 'avdgaag/vim-phoenix'
-
-" Prolog
-Plugin 'adimit/prolog.vim'
-
-" Elm
-Plugin 'ElmCast/elm-vim'
 
 " Vundle end
 call vundle#end()
@@ -194,7 +186,7 @@ let g:vim_markdown_folding_disabled = 1
 
 " Vim GitGutter
 let g:gitgutter_override_sign_column_highlight = 0
-let g:gitgutter_sign_column_always = 1
+set signcolumn=yes
 hi SignColumn ctermbg=16 guibg=#2a343a
 
 " Syntax
