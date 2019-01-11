@@ -58,6 +58,9 @@ set undodir=~/.vim/.tmp/undo
 set viminfo+=n~/.vim/.tmp/viminfo
 set history=1000
 
+" Disable Oct Increment
+set nrformats-=octal
+
 " On save any: trim trailing whitespace
 autocmd! BufWrite * mark ' | silent! %s/\s\+$// | norm ''
 
@@ -129,7 +132,14 @@ inoremap <A-k> <Esc>:m .-2<CR>==gi
 vnoremap <A-j> :m '>+1<CR>gv=gv
 vnoremap <A-k> :m '<-2<CR>gv=gv
 
-" VimPlug
+" Buffers
+map <C-S-F12> :bufdo bd<CR>:NERDTree<CR>
+
+" Syntax special mappings
+au BufReadPost *.es6.erb set syntax=javascript
+au BufReadPost *.slimbars set syntax=slim
+
+"" Plugins
 
 " Autoinstall
 if empty(glob('~/.vim/autoload/plug.vim'))
@@ -208,7 +218,3 @@ let g:vim_markdown_folding_disabled = 1
 let g:gitgutter_override_sign_column_highlight = 0
 set signcolumn=yes
 hi SignColumn ctermbg=16 guibg=#2a343a
-
-" Syntax
-au BufReadPost *.es6.erb set syntax=javascript
-au BufReadPost *.slimbars set syntax=slim
