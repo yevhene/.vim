@@ -212,6 +212,8 @@ nnoremap <silent> <C-g>c :call FZFOpen(':Commands')<CR>
 nnoremap <silent> <C-g>l :call FZFOpen(':BLines')<CR>
 nnoremap <silent> <C-f> :call FZFOpen(':Files')<CR>
 
+let $FZF_DEFAULT_COMMAND = '(git ls-tree -r --name-only HEAD || find . -path "*/\.*" -prune -o -type f -print -o -type l -print | sed s/^..//) 2> /dev/null'
+
 " Vim Markdown
 let g:vim_markdown_folding_disabled = 1
 
