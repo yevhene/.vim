@@ -154,6 +154,7 @@ call plug#begin('~/.vim/plugged')
 " Global
 Plug 'scrooloose/nerdtree'
 Plug 'plasticboy/vim-markdown'
+Plug 'scrooloose/nerdcommenter'
 
 " FuzzyFinder
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -218,3 +219,7 @@ let g:vim_markdown_folding_disabled = 1
 let g:gitgutter_override_sign_column_highlight = 0
 set signcolumn=yes
 hi SignColumn ctermbg=16 guibg=#2a343a
+
+" NerdCommenter
+nmap <C-_> <Plug>NERDCommenterToggle
+vmap <C-_> <Plug>NERDCommenterToggle<CR>gv
