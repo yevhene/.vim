@@ -1,7 +1,8 @@
 # Prerequisites
-## Elm
 
-    $ npm install -g elm elm-test elm-oracle elm-format
+## Rg
+
+    $ sudo apt install ripgrep
 
 # Installation
 
@@ -11,5 +12,5 @@
 
 ## In Vim
 
-    :PluginInstall
+    :PlugInstall
 
