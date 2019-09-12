@@ -138,6 +138,7 @@ map <C-S-F12> :bufdo bd<CR>:NERDTree<CR>
 " Syntax special mappings
 au BufReadPost *.es6.erb set syntax=javascript
 au BufReadPost *.slimbars set syntax=slim
+au BufReadPost *.exs set syntax=elixir
 
 "" Plugins
 
@@ -153,7 +154,7 @@ call plug#begin('~/.vim/plugged')
 
 " Global
 Plug 'scrooloose/nerdtree'
-Plug 'plasticboy/vim-markdown'
+Plug 'sheerun/vim-polyglot'
 Plug 'scrooloose/nerdcommenter'
 
 " FuzzyFinder
@@ -163,25 +164,6 @@ Plug 'junegunn/fzf.vim'
 " Git
 Plug 'airblade/vim-gitgutter'
 Plug 'Xuyuanp/nerdtree-git-plugin'
-
-" Rails
-Plug 'tpope/vim-rails'
-Plug 'slim-template/vim-slim'
-Plug 'kchmck/vim-coffee-script'
-Plug 'cakebaker/scss-syntax.vim'
-
-" Node
-Plug 'moll/vim-node'
-Plug 'wavded/vim-stylus'
-Plug 'digitaltoad/vim-pug'
-Plug 'nikvdp/ejs-syntax'
-Plug 'pangloss/vim-javascript'
-Plug 'mxw/vim-jsx'
-
-" Elixir
-Plug 'jimenezrick/vimerl'
-Plug 'elixir-lang/vim-elixir'
-Plug 'avdgaag/vim-phoenix'
 
 " Plugins end
 call plug#end()
@@ -217,8 +199,14 @@ let g:vim_markdown_folding_disabled = 1
 " Vim GitGutter
 let g:gitgutter_override_sign_column_highlight = 0
 set signcolumn=yes
-hi SignColumn ctermbg=16 guibg=#2a343a
+highlight clear SignColumn
+highlight GitGutterAdd    guifg=#009900 ctermfg=2
+highlight GitGutterChange guifg=#bbbb00 ctermfg=3
+highlight GitGutterDelete guifg=#ff2222 ctermfg=1
 
 " NerdCommenter
 nmap <C-_> <Plug>NERDCommenterToggle
 vmap <C-_> <Plug>NERDCommenterToggle<CR>gv
+
+" Global search
+nnoremap \ :execute 'Rg' expand('<cword>')<CR>
