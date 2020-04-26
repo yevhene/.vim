@@ -1,16 +1,10 @@
 # Prerequisites
 
-## Rg
+## Requirements
 
-    $ sudo apt install ripgrep
+    $ sudo apt install curl ripgrep
 
 # Installation
 
     $ git clone git@github.com:yevhene/.vim.git ~/.vim
     $ ln -fs  ~/.vim/rc ~/.vimrc
-    $ cd ~/.vim && git submodule update --init
-
-## In Vim
-
-    :PlugInstall
-
