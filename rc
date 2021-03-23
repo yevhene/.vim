@@ -156,6 +156,9 @@ call plug#begin('~/.vim/plugged')
 Plug 'scrooloose/nerdtree'
 Plug 'sheerun/vim-polyglot'
 Plug 'scrooloose/nerdcommenter'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'bling/vim-bufferline'
 
 " FuzzyFinder
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -167,6 +170,13 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 
 " Plugins end
 call plug#end()
+
+" Airline
+let g:airline_theme='badwolf'
+let g:airline_powerline_fonts = 1
+
+" Polyglot
+let g:polyglot_disabled = ['csv']
 
 " NERDTree
 let g:NERDTreeChDirMode = 2 " Change dir globally (for fzf)
