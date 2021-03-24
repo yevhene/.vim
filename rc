@@ -76,13 +76,6 @@ nmap <C-V> "+p
 imap <C-V> <ESC><C-V>i
 vmap <C-C> "+y
 
-" Set color scheme that I like
-if has("gui_running")
-  colorscheme codeschool
-else
-  colorscheme default
-endif
-
 " Setup GUI
 if has("gui_running")
   " Set window size
@@ -136,9 +129,7 @@ vnoremap <A-k> :m '<-2<CR>gv=gv
 map <C-S-F12> :bufdo bd<CR>:NERDTree<CR>
 
 " Syntax special mappings
-au BufReadPost *.es6.erb set syntax=javascript
 au BufReadPost *.slimbars set syntax=slim
-au BufReadPost *.exs set syntax=elixir
 
 "" Plugins
 
@@ -153,11 +144,12 @@ endif
 call plug#begin('~/.vim/plugged')
 
 " Global
-Plug 'scrooloose/nerdtree'
-Plug 'sheerun/vim-polyglot'
-Plug 'scrooloose/nerdcommenter'
+Plug 'sjl/badwolf'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'sheerun/vim-polyglot'
+Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdcommenter'
 Plug 'bling/vim-bufferline'
 
 " FuzzyFinder
@@ -170,6 +162,9 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 
 " Plugins end
 call plug#end()
+
+" Theme
+colorscheme badwolf
 
 " Airline
 let g:airline_theme='badwolf'
@@ -189,6 +184,10 @@ if has("gui_running")
 else
   let g:NERDTreeWinSize=22
 end
+
+" NerdCommenter
+nmap <C-_> <Plug>NERDCommenterToggle
+vmap <C-_> <Plug>NERDCommenterToggle<CR>gv
 
 " FuzzyFinder
 function! FZFOpen(command_str)
@@ -213,10 +212,6 @@ highlight clear SignColumn
 highlight GitGutterAdd    guifg=#009900 ctermfg=2
 highlight GitGutterChange guifg=#bbbb00 ctermfg=3
 highlight GitGutterDelete guifg=#ff2222 ctermfg=1
-
-" NerdCommenter
-nmap <C-_> <Plug>NERDCommenterToggle
-vmap <C-_> <Plug>NERDCommenterToggle<CR>gv
 
 " Global search
 nnoremap \ :execute 'Rg' expand('<cword>')<CR>
