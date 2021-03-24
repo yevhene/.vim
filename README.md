@@ -1,10 +1,15 @@
-# Prerequisites
+# Vim config
 
-## Requirements
+## Prerequisites
 
-    $ sudo apt install curl ripgrep
+    $ sudo apt install curl ripgrep python3-is-python powerline fonts-powerline
 
-# Installation
+## Installation
 
     $ git clone git@github.com:yevhene/.vim.git ~/.vim
     $ ln -fs  ~/.vim/rc ~/.vimrc
+
+## Setup
+
+Inside vim: `:PlugInstall`
+

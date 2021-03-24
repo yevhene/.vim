@@ -6,6 +6,10 @@ set nocompatible
 " Use UTF-8
 set encoding=utf-8
 
+" Vim modelines scoped to first and last line
+set modeline
+set modelines=1
+
 " Enable syntax highlighting
 syntax on
 
@@ -91,16 +95,6 @@ if has("gui_running")
   set guioptions-=r
 endif
 
-" Highlight long strings
-highlight OverLength ctermbg=red ctermfg=white guibg=#592929
-autocmd VimEnter,WinEnter * match OverLength /\%81v.\+/
-
-if exists('+colorcolumn')
-  set colorcolumn=80
-else
-  au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
-endif
-
 " Treat long lines as break lines (useful when moving around in them)
 noremap j gj
 noremap k gk
@@ -144,13 +138,17 @@ endif
 call plug#begin('~/.vim/plugged')
 
 " Global
-Plug 'sjl/badwolf'
+Plug 'morhetz/gruvbox'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'sheerun/vim-polyglot'
 Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/nerdcommenter'
-Plug 'bling/vim-bufferline'
+
+" Elixir
+Plug 'elixir-editors/vim-elixir'
+Plug 'mhinz/vim-mix-format'
+Plug 'slashmili/alchemist.vim'
 
 " FuzzyFinder
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -164,11 +162,23 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 call plug#end()
 
 " Theme
-colorscheme badwolf
+set background=dark
+colorscheme gruvbox
+
+" Highlight long strings
+highlight OverLength ctermbg=red ctermfg=white guibg=#592929
+autocmd VimEnter,WinEnter * match OverLength /\%81v.\+/
+
+if exists('+colorcolumn')
+  set colorcolumn=80
+else
+  au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
+endif
 
 " Airline
-let g:airline_theme='badwolf'
+let g:airline_theme='gruvbox'
 let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
 
 " Polyglot
 let g:polyglot_disabled = ['csv']
@@ -188,6 +198,10 @@ end
 " NerdCommenter
 nmap <C-_> <Plug>NERDCommenterToggle
 vmap <C-_> <Plug>NERDCommenterToggle<CR>gv
+
+" mix-format
+let g:mix_format_on_save = 1
+let g:mix_format_silent_errors = 1
 
 " FuzzyFinder
 function! FZFOpen(command_str)
