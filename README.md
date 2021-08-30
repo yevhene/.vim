@@ -2,7 +2,7 @@
 
 ## Prerequisites
 
-    $ sudo apt install curl ripgrep python3-is-python powerline fonts-powerline
+    $ sudo apt install curl ripgrep powerline fonts-powerline
 
 ## Installation
 

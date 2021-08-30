@@ -137,6 +137,9 @@ endif
 " Plugins begin
 call plug#begin('~/.vim/plugged')
 
+" Pre
+let g:polyglot_disabled = ['csv']
+
 " Global
 Plug 'morhetz/gruvbox'
 Plug 'vim-airline/vim-airline'
@@ -144,6 +147,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'sheerun/vim-polyglot'
 Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/nerdcommenter'
+Plug 'mracos/mermaid.vim'
 
 " Elixir
 Plug 'elixir-editors/vim-elixir'
@@ -179,9 +183,6 @@ endif
 let g:airline_theme='gruvbox'
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
-
-" Polyglot
-let g:polyglot_disabled = ['csv']
 
 " NERDTree
 let g:NERDTreeChDirMode = 2 " Change dir globally (for fzf)
